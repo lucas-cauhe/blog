@@ -118,3 +118,6 @@ description = "Mi portfolio"
         lang = ''
         source = 'assets'
         target = 'assets'
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
