@@ -9,7 +9,7 @@ description = "Mi portfolio"
     [params.home]
         [params.home.profile]
             gravatarEmail = ""
-            avatarURL = "/images/profile.jpeg"
+            avatarURL = "https://github.com/lucas-cauhe/blog/blob/main/static/images/profile.jpeg"
             subtitle = "Computing, Systems and Cloud Engineering"
     [params.social]
         GitHub = "lucas-cauhe"
