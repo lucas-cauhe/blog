@@ -1,6 +1,95 @@
 baseURL = 'https://lucas-cauhe.github.io/'
 languageCode = 'en-us'
-title = 'Lucas Cauhé Portfolio'
+title = "Lucas' Portfolio"
+[params]
+description = "Mi portfolio"
+    [params.header]
+        [params.header.title]
+        name = 'Lucas Cauhé Viñao'
+    [params.home]
+        [params.home.profile]
+            gravatarEmail = ""
+            avatarURL = "/images/profile.jpeg"
+            subtitle = "Computing, Systems and Cloud Engineering"
+    [params.social]
+        GitHub = "lucas-cauhe"
+        Linkedin = "lucas-cv"
+        Twitter = ""
+        Instagram = ""
+        Facebook = ""
+        Telegram = ""
+        Medium = ""
+        Gitlab = ""
+        Youtubelegacy = ""
+        Youtubecustom = ""
+        Youtubechannel = ""
+        Tumblr = ""
+        Quora = ""
+        Keybase = ""
+        Pinterest = ""
+        Reddit = ""
+        Codepen = ""
+        FreeCodeCamp = ""
+        Bitbucket = ""
+        Stackoverflow = ""
+        Weibo = ""
+        Odnoklassniki = ""
+        VK = ""
+        Flickr = ""
+        Xing = ""
+        Snapchat = ""
+        Soundcloud = ""
+        Spotify = ""
+        Bandcamp = ""
+        Paypal = ""
+        Fivehundredpx = ""
+        Mix = ""
+        Goodreads = ""
+        Lastfm = ""
+        Foursquare = ""
+        Hackernews = ""
+        Kickstarter = ""
+        Patreon = ""
+        Steam = ""
+        Twitch = ""
+        Strava = ""
+        Skype = ""
+        Whatsapp = ""
+        Zhihu = ""
+        Douban = ""
+        Angellist = ""
+        Slidershare = ""
+        Jsfiddle = ""
+        Deviantart = ""
+        Behance = ""
+        Dribbble = ""
+        Wordpress = ""
+        Vine = ""
+        Googlescholar = ""
+        Researchgate = ""
+        Mastodon = ""
+        Thingiverse = ""
+        Devto = ""
+        Gitea = ""
+        XMPP = ""
+        Matrix = ""
+        Bilibili = ""
+        Email = "lcauhe@gmail.com"
+        RSS = ""
+    [params.page]
+        [params.page.share]
+            enable = true
+            Linkedin = true
+            Twitter = true
+            Facebook = true
+            HackerNews = false
+            Weibo = false
+            Line = false
+        [params.page.comment]
+            enable = true
+            [params.page.comment.disqus]
+                enable = true
+                shortname = "Comments"
 [module]
   [[module.imports]]
     path = "github.com/Fastbyte01/KeepIt"
