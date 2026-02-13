@@ -1,4 +1,4 @@
-baseURL = 'https://lucas-cauhe.github.io/'
+baseURL = 'https://lucas-cauhe.github.io/blog/'
 languageCode = 'en-us'
 title = "Lucas' Portfolio"
 [params]
@@ -9,7 +9,7 @@ description = "Mi portfolio"
     [params.home]
         [params.home.profile]
             gravatarEmail = ""
-            avatarURL = "https://github.com/lucas-cauhe/blog/blob/main/static/images/profile.jpeg"
+            avatarURL = "/images/profile.jpeg"
             subtitle = "Computing, Systems and Cloud Engineering"
     [params.social]
         GitHub = "lucas-cauhe"
