@@ -10,8 +10,8 @@ author = "Lucas"
 tags = ["Cloud Federation", "OpenNebula", "Ceph", "Vagrant", "OPA"]
 categories = ["Technical"]
 
-featuredImage = "/images/federation/federation-fi.png"
-featuredImagePreview = "/images/federation/federation-fi-preview.png"
+featuredImage = "https://lucas-cauhe.github.io/blog/images/federation/federation-fi.png"
+featuredImagePreview = "https://lucas-cauhe.github.io/blog/images/federation/federation-fi-preview.png"
 
 author-link = "https://github.com/lucas-cauhe/cloud-fed"
 +++
@@ -32,7 +32,7 @@ Due to monetary costs and location unavailability the system was simulated/virtu
 The 3-plane representation for cloud federation from [NIST](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.500-332.pdf) inspired the design for this federation.
 The cloud provider was already fixed for the project, which was OpenNebula.
 
-![Federation Architecture](/images/federation/arch.svg "Federation Architecture")
+![Federation Architecture](https://lucas-cauhe.github.io/blog/images/federation/arch.svg "Federation Architecture")
 
 In the trust plane, the OpenNebula instances share the `oneadmin` user to be part of the same federation.
 Trust is further developed in the infrastructure with network policies.
@@ -52,7 +52,7 @@ But not all the state, just users, ACLs and marketplace information, as far as i
 Since it seems more like a SSO implementation, I extended the default user organization so that there is no global admin, but only local admins in each zone.
 Users can be added to federation-wide groups get extended permissions and will always obey to custom policies defined in each zone.
 
-![Policy enforcing system design](/images/federation/policies.svg "Policy enforcing system design")
+![Policy enforcing system design](https://lucas-cauhe.github.io/blog/images/federation/policies.svg "Policy enforcing system design")
 
 In the picture above it's described the design that I eventually implemented.
 The monitoring system is essential to this design as it acts as the source of truth for what is happening on each entity's infrastructure.
@@ -69,7 +69,7 @@ Resource creation triggers the hook that follows the workflow described above an
 One of the requirements for this project was to have a catalog, a virtual space where users from different entities could share their virtual resources, such as virtual disk images and full-featured services.
 This concept was implemented using OpenNebula's Marketplace service, and developing a more complex infrastructure underneath.
 
-![Marketplace infrastructure design](/images/federation/marketplace.png "Marketplace infrastructure design")
+![Marketplace infrastructure design](https://lucas-cauhe.github.io/blog/images/federation/marketplace.png "Marketplace infrastructure design")
 
 OpenNebula's Marketplace is fully documented in its own site, check it out for more details.
 What I find more interesting here is the infrastructure that guarantees high availability and fault tolerance using multiple Ceph clusters.

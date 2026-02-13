@@ -12,7 +12,7 @@ I am currently a Cloud Engineer intern at the systems service of the University 
 
 My interests are cloud systems and functional and systems programming.
 
-You can also check my [CV](/docs/cv_en.pdf).
+You can also check my [CV](https://lucas-cauhe.github.io/blog/docs/cv_en.pdf).
 
 I use this blog to post new and exciting projects I am working on.
 You can also check previous projects in my [github profile](https://github.com/lucas-cauhe)
