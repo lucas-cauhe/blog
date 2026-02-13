@@ -1,4 +1,4 @@
-baseURL = 'https://lucas-cauhe.github.io/blog/'
+baseURL = 'https://lucas-cauhe.github.io/blog'
 languageCode = 'en-us'
 title = "Lucas' Portfolio"
 [params]
