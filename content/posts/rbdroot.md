@@ -3,8 +3,8 @@ date = '2026-03-30T13:21:40+02:00'
 draft = false 
 title = 'Use RBD image as rootfs'
 subtitle = "Map and mount RBD images to boot Linux-based systems"
-summary = ""
-description = ""
+summary = "This blog post helps understand the boot process of Linux and how it can be modified to load the root filesystem from an RBD device"
+description = "This blog post helps understand the boot process of Linux and how it can be modified to load the root filesystem from an RBD device"
 author = "Lucas"
 
 tags = ["Ceph", "RBD", "Initramfs", "Network boot"]
