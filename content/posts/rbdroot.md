@@ -39,18 +39,18 @@ Partition table entries are not in disk order.
 ```
 
 The same block device contains the boot sector, efi and rootfs. What if the
-rootfs was loaded over the network? In this blog post I will showcase the benefits
-of using an RBD-backed rootfs, an example setup and further improvements.
+rootfs was loaded over the network? In this blog post, I will showcase the benefits
+of using an RBD-backed rootfs, provide an example setup and discuss further improvements.
 
-Before explaining any further I will be using some terminology that might be
+Before explaining any further, I have used some terminology that might be
 confusing sometimes, so let me explain it first.
-I will refer to the `init` script located at the initramfs like `init0` and to
+I will refer to the `init` script located at the initramfs as `init0`, and to
 the one in the rootfs as `init1` for convenience.
 Also the words `initrd` and `initramfs` are used interchangeably.
 
 ### Linux kernel boot process
 
-On the early stage of the boot process, a compiled version of the kernel is
+In the early stage of the boot process, a compiled version of the kernel is
 loaded into a memory filesystem from the MBR along with some initial modules,
 binary files and extra configuration called initramfs (old initrd).
 
@@ -67,15 +67,15 @@ the process with pid 1.
 
 ### Network rootfs
 
-There are two main sources to chose from for a device that contains a rootfs:
-local block devices and network devices. From the latter either network
-filesystems (e.g. nfs, smb, cephfs) or network block devices (e.g. iSCSI, RBD)
+There are two main sources to choose from for a device that contains a rootfs:
+local block devices and network devices. From the latter, either network
+filesystems (e.g., nfs, smb, cephfs) or network block devices (e.g., iSCSI, RBD)
 can be used.
 
 As I mentioned before, `init0` can be modified to connect
 to some of these network sources. I found the following
 [patch](https://lists.debian.org/debian-kernel/2015/06/msg00163.html)
-published in debian's mailing lists where a RBD device can be mapped and the FS
+published in debian's mailing lists, where an RBD device can be mapped and the FS
 in it mounted to act as the rootfs.
 
 ## RBD image creation
@@ -85,7 +85,7 @@ RBD image with a filesystem installed in it.
 
 **Ceph user**
 
-First you will need to create, or use an existing, Ceph user with admin
+First, you will need to create, or use an existing, Ceph user with admin
 capabilities over an RBD-enabled pool. Keep in mind that connecting to the cluster
 from `init0` requires the user's name and keyring, target pool and image name.
 
@@ -96,7 +96,7 @@ specific Linux distribution. In fact, it can be anything that contains an execut
 named `init` and a modules directory. This is what containers are, with some
 additional configuration to isolate the filesystem's environment.
 
-There are some easy to use command line utilities such as
+There are some easy-to-use command-line utilities such as
 [docker export](https://docs.docker.com/reference/cli/docker/container/export/)
 or
 [debootstrap](https://wiki.debian.org/Debootstrap) (for creating Debian systems)
@@ -107,7 +107,7 @@ rootfs and `dd` to extract it into a raw image.
 
 Consider the output of the `fdisk` command from the top of the post, you can
 extract the `Linux root (x86-64)` partition by following these two steps.
-First ACPI shutdown the machine, this prevents from booting an inconsistent image.
+First, ACPI shutdown the machine, which prevents booting an inconsistent image.
 Then, if it is physically installed, boot from another device, such as a live ISO,
 or if it is a virtual machine, dump its virtual block device into a file.
 Next, run
@@ -129,8 +129,8 @@ loop device) and `chroot` into it.
 
 There is some basic configuration to be done before booting with this image as
 rootfs. The `init0` script sets up some basic networking, enough to connect to
-the Ceph cluster. If, at any time, the conection is lost and the system needs
-to access the RBD mapping (e.g. by swapping or loading additional modules), the
+the Ceph cluster. If, at any time, the connection is lost and the system needs
+to access the RBD mapping (e.g., by swapping or loading additional modules), the
 boot process will fail. For this reason, it is important to modify the rootfs
 network configuration so that you make sure that the network interface that connects
 to the Ceph cluster won't be updated, even if it is just to configure it as it
@@ -138,7 +138,7 @@ already is.
 
 Another crucial step is to make sure that the uuid of the image is used for the
 root mount in the `/etc/fstab` of the rootfs. Otherwise some incosistencies could
-happen or in some cases, `init1` could fail.
+happen, or in some cases, `init1` could fail.
 In the following section, I will talk about another special mountpoint to consider,
 but for now, make sure that the boot device, where kernel and initrd
 images are installed, has a boot partition label and it is included in the `/etc/fstab`
@@ -221,22 +221,22 @@ a cheaper option than hard or solid state drives.
 ### Centralised administration
 
 RBD-based rootfs can help with centralising the configuration of the base system,
-using a version table for example, where in the same pool you have the
+using a version table, for example, where in the same pool you have the
 \"development\" version of the rootfs image and several snapshots, one for each
 version update and target server.
 This way, a generic `rbd` mount script could retrieve the hostname it is
-running at and mount a specific version.
-Any update that the administrator plans, would be done on the \"development\" image
-and once ready take a snapshot of it.
+running on and mount a specific version.
+Any update that the administrator plans would be done on the \"development\" image
+and once ready, take a snapshot of it.
 
-Updates could be configured either in the `rbd` scripts from the initrd image
-to fetch the latest version for the server or have a local distro packages
+Updates could be configured either in the `rbd` scripts from the initrd image,
+to fetch the latest version for the server, or have a local distro packages
 repository that would update initrd image. Then reboot the host and the update
 is installed.
 
 I have suggested to take one snapshot for every version and host so that no two
 hosts are using a shared root filesystem, which can lead to concurrency problems.
-However if you expect to have a read-only system or install a shared filesystem,
+However, if you expect to have a read-only system or install a shared filesystem,
 it is totally okay to take just one snapshot for each version.
 
 ## Future work
