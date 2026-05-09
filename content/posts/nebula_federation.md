@@ -76,17 +76,17 @@ What I find more interesting here is the infrastructure that guarantees high ava
 
 Here is a description of the thinking path that got me to the solution:
 
-> > "Where should I store the Marketplace's objets?"
->
-> In a Ceph cluster, of course. It provides object storage and a S3-compatible interface.
+{{< admonition type=note title="Where should I store the Marketplace's objets?" open=true >}}
+In a Ceph cluster, of course. It provides object storage and a S3-compatible interface.
+{{< /admonition >}}
 
-> > "Which Ceph cluster should I select, among all the entities?"
->
-> All of them, if any fails, the others should be able to retrieve the Marketplace's objects.
+{{< admonition type=note title="Which Ceph cluster should I select, among all the entities?" open=true >}}
+All of them, if any fails, the others should be able to retrieve the Marketplace's objects.
+{{< /admonition >}}
 
-> > "Is there a way to replicate a pool's objects accross multiple Ceph clusters and having a unified vision of it?"
->
-> There is, it is called Ceph Object Gateway's Multi-site configuration.
+{{< admonition type=note title="Is there a way to replicate a pool's objects accross multiple Ceph clusters and having a unified vision of it?" open=true >}}
+There is, it is called Ceph Object Gateway's Multi-site configuration.
+{{< /admonition >}}
 
 And that was it, define the RGW resource in Puppet that includes itself in the Multi-site configuration and whether it acts as the main or secondary zone. The specific configuration I chose for this design was the Multi-zone one.
 

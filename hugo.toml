@@ -146,6 +146,13 @@ description = "Mi portfolio"
         title = "Curriculum Vitae"
         url = "docs/cv_en.pdf"
         weight = 2
+    [[languages.en.menu.main]]
+        identifier = "certs"
+        name = " Certifications"
+        pre = "<i class='fa-solid fa-medal'></i>"
+        title = "Certifications"
+        url = "/certs/"
+        weight = 3
       [[languages.en.menu.main]]
         identifier = "tags"
         pre = ""
@@ -153,7 +160,7 @@ description = "Mi portfolio"
         name = "Tags"
         url = "/tags/"
         title = ""
-        weight = 3
+        weight = 4
       [[languages.en.menu.main]]
         identifier = "categories"
         pre = ""
@@ -161,5 +168,8 @@ description = "Mi portfolio"
         name = "Categories"
         url = "/categories/"
         title = ""
-        weight = 4
-
+        weight = 5
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
