@@ -8,7 +8,7 @@ Welcome to my personal blog!
 
 My name is Lucas and I'm a graduate in Computer Science at University of Zaragoza.
 
-I am currently a Cloud Engineer intern at the systems service of the University of Zaragoza (SICUZ).
+I am currently a Site Reliability Engineer (SRE) @ Teltronic.
 
 My interests are cloud systems and functional and systems programming.
 
